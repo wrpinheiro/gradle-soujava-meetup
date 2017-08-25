@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+task runApplication(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'org.soujava.exemplogradle.Calculadora'
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"

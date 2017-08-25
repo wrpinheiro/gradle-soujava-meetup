@@ -1,0 +1,16 @@
+apply from: 'my-plugin.gradle'
+
+apply plugin: 'java'
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.org.gradle.kotlin:gradle-kotlin-dsl-plugins:0.10.9"
+  }
+}
+
+apply plugin: 'org.gradle.kotlin.kotlin-dsl'

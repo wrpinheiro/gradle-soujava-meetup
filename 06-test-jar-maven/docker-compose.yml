@@ -1,0 +1,7 @@
+# inicia um artifactory local, com usuário/senha: admin/password
+version: "2.2"
+services:
+  artifactory:
+    image: docker.bintray.io/jfrog/artifactory-oss
+    ports:
+      - "8081:8081"

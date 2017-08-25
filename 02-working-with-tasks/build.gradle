@@ -1,0 +1,40 @@
+task ls(type: Exec) {
+  commandLine 'ls'
+  args '-Flah'
+}
+
+task copyBuild(type: Copy) {
+  from 'build.gradle'
+  into 'output/'
+}
+
+task renameBuild(type: Copy) {
+  from 'build.gradle'
+  into '.'
+  rename '(.*)', '$1.new'
+}
+
+task delete {
+  delete 'build.gradle.new'
+}
+
+task tar(type: Tar) {
+   from '.'
+   include '*'
+   exclude 'output'
+   archiveName 'project.tar.gz'
+   compression = Compression.GZIP
+   destinationDir file('output')
+}
+
+task tail(type: Exec) {
+  commandLine 'tail'
+}
+
+task customTail {
+  doLast {
+    tail {
+      args "-${project.lines}", 'build.gradle'
+    }.execute()
+  }
+}

@@ -1,0 +1,5 @@
+task dropDBAndRun {
+  doLast {
+    println 'dropped'
+  }
+}

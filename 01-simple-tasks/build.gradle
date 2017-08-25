@@ -1,0 +1,72 @@
+def message = 'Hello World'
+
+task helloWorld {
+  group = "Hello"
+  doLast {
+    println message
+  }
+}
+
+task helloAgain {
+  group "Hello"
+  doFirst {
+    [1, 2, 3].each {
+      println "configurando task ${name}. Passo ${it}"
+    }
+  }
+  doLast {
+    println "finalizando execução da task ${name}"
+  }
+}
+
+helloWorld {
+  doLast {
+    println "outra ação..."
+  }
+}
+
+helloWorld.doLast {
+  println "mais uma ação"
+}
+
+task hey
+
+hey {
+  group "hey hey hey"
+}
+
+// dependencies
+task compile {
+  doLast { println "Compilando classes" }
+}
+
+task jar {
+  doLast { println "Gerando Jarfile" }
+}
+
+task test {
+  doLast { println "Executando test" }
+}
+
+task deploy {
+  doLast { println "Fazendo deploy" }
+}
+
+test.dependsOn compile
+jar.dependsOn compile, test
+deploy.dependsOn jar
+
+3.times {
+  task "muitasTasks$it" {
+    doLast { println "Task: ${name}" }
+  }
+}
+
+def muitasTasks = tasks.matching { t ->
+  t.name.startsWith("muitasTasks");
+}
+
+task dependeDasMuitas {
+  dependsOn muitasTasks
+}
+

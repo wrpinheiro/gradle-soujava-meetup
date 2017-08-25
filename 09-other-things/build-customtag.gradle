@@ -1,0 +1,10 @@
+// gradle myTask
+
+class MyTask extends DefaultTask {
+  @TaskAction
+  def action() {
+    println "executando mytask"
+  }
+}
+
+task myTask(type: MyTask)
