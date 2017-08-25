@@ -13,7 +13,7 @@
 
 # Como executar
 
-Use `gradle tasks --all` para ver as tasks disponíveis e execute:
+Entre em cada um dos diretórios e execute `gradle tasks --all` para ver as tasks disponíveis. Selecione a task e execute:
 
 ```
 gradle <task>
