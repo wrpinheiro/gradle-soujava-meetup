@@ -1,5 +1,8 @@
 # Exemplos de Gradle buildfiles
 
+Os exemplos desse repositório foram usados na palestra [Precisamos falar sobre Gradle](https://pt.slideshare.net/wrpinheiro/precisamos-falar-sobre-gradle) apresentada no [Meetup do SouJava Campinas](https://www.meetup.com/pt-BR/SouJavaCampinas/events/242094329/).
+
+# Descrição dos exemplos
 
 * 01-simple-tasks: tasks simples e dependências
 * 02-working-with-tasks: configuração e uso de tasks disponível pela Gradle
